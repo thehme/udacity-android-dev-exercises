@@ -60,8 +60,9 @@ public class NetworkUtils {
         try {
             InputStream in = urlConnection.getInputStream();
 
-            Scanner scanner = new Scanner(in);
-            scanner.useDelimiter("\\A");
+            Scanner scanner = new Scanner(in); // tokenizes stream
+            scanner.useDelimiter("\\A"); // read entire stream, buffers the data
+                                        // handles encoding, utf8 -> utf16
 
             boolean hasInput = scanner.hasNext();
             if (hasInput) {
